@@ -108,3 +108,26 @@ function is_palindrome(s) {
 
 
 //number 5:::
+
+function sortStack(stack) {
+  const sort = new Stack
+  while (!isEmpty(stack)) {
+      let tempNode = stack.pop()
+      while (!isEmpty(sort) && peek(sort) < tempNode) {
+          stack.push(sort.pop())
+      }
+      sort.push(tempNode)
+  }
+  return display(sort)
+}
+
+// const numbersStack = new Stack
+// numbersStack.push(1)
+// numbersStack.push(2)
+// numbersStack.push(8)
+// numbersStack.push(20)
+// numbersStack.push(3)
+// console.log(display(numbersStack))
+// console.log(sortStack(numbersStack))
+
+module.exports = Stack
