@@ -23,7 +23,7 @@ class Stack {
   //Since we are removing only from the top of the stack, the time complexity of 
   //removing an item from a stack is constant, O(1).
   pop() {
-    if(this.top === null){
+    if (this.top === null) {
       return 'Stack is Empty';
     }
     let topNode = this.top;
@@ -33,27 +33,27 @@ class Stack {
 }
 //helper function
 
-function peek(stack){
+function peek(stack) {
   let top = stack.top;
-  if (top === null){
+  if (top === null) {
     return 'The stack is currently empty';
   }
   return top.data + ' is at the top of the stack';
 }
 
-function isEmpty(stack){
+function isEmpty(stack) {
   let top = stack.top;
-  if(top === null){
+  if (top === null) {
     return 'The stack is Empty';
   }
   return 'The stack is not Empty';
 }
 
 
-function display(stack){
-  let currNode=stack.top;
-  let answer= [];
-  while(currNode !== null) {
+function display(stack) {
+  let currNode = stack.top;
+  let answer = [];
+  while (currNode !== null) {
     answer.unshift(currNode.data);
     currNode = currNode.next;
   }
@@ -61,7 +61,7 @@ function display(stack){
   return answer;
 }
 
-function main(){
+function main() {
   let starTrek = new Stack();
   starTrek.push('Kirk');
   starTrek.push('Spock');
@@ -76,3 +76,29 @@ function main(){
 }
 
 main();
+
+
+function is_palindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  // Your code goes here
+  const palindromes = new Stack();
+  let forward = '';
+  let backward = '';
+  for (let i = 0; i < s.length; i++) {
+    palindromes.push(s.charAt(i));
+    forward += s.charAt(i);
+  }
+  for(let i =0; i< s.length; i++){
+    backward += palindromes.pop();
+  }
+  if (forward === backward){
+    return true;
+  }
+  return false;
+}
+
+// True, true, true, false
+console.log(is_palindrome('dad'));
+console.log(is_palindrome('A man, a plan, a canal: Panama'));
+console.log(is_palindrome('1001'));
+console.log(is_palindrome('Tauhida'));
