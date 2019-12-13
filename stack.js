@@ -36,17 +36,17 @@ class Stack {
 function peek(stack) {
   let top = stack.top;
   if (top === null) {
-    return 'The stack is currently empty';
+    return null;
   }
-  return top.data + ' is at the top of the stack';
+  return top.data;
 }
 
 function isEmpty(stack) {
   let top = stack.top;
   if (top === null) {
-    return 'The stack is Empty';
+    return true;
   }
-  return 'The stack is not Empty';
+  return false;
 }
 
 
@@ -75,7 +75,7 @@ function main() {
   display(starTrek);
 }
 
-main();
+// main();
 
 
 function is_palindrome(s) {
@@ -88,17 +88,23 @@ function is_palindrome(s) {
     palindromes.push(s.charAt(i));
     forward += s.charAt(i);
   }
-  for(let i =0; i< s.length; i++){
+  for (let i = 0; i < s.length; i++) {
     backward += palindromes.pop();
   }
-  if (forward === backward){
+  if (forward === backward) {
     return true;
   }
   return false;
 }
 
 // True, true, true, false
-console.log(is_palindrome('dad'));
-console.log(is_palindrome('A man, a plan, a canal: Panama'));
-console.log(is_palindrome('1001'));
-console.log(is_palindrome('Tauhida'));
+// console.log(is_palindrome('dad'));
+// console.log(is_palindrome('A man, a plan, a canal: Panama'));
+// console.log(is_palindrome('1001'));
+// console.log(is_palindrome('Tauhida'));
+
+//number four goes here. need to rework this one.
+
+
+
+//number 5:::
